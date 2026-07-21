@@ -94,3 +94,31 @@ while (
 let isEmployed = employed.toLowerCase() === "yes";
 
 alert(checkEligibility(age, isEmployed));
+
+// ==========================
+// Task 4
+// ==========================
+
+function calculateTotalCostWithDiscount(price, quantity, taxRate, discount = 0) {
+    if (
+        isNaN(price) ||
+        isNaN(quantity) ||
+        isNaN(taxRate) ||
+        isNaN(discount)
+    ) {
+        return "Invalid input.";
+    }
+
+    let subtotal = (price * quantity) - discount;
+
+    // Prevent negative subtotal
+    if (subtotal < 0) {
+        subtotal = 0;
+    }
+
+    return subtotal * (1 + taxRate);
+}
+
+price = Number(prompt("Enter the price:"));
+while (isNaN(price)) {
+    price = Number(prompt("Invalid input. Enter the price:"));
