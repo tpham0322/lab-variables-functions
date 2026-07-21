@@ -2,6 +2,7 @@
 // Task 1
 // ==========================
 
+// Function to format full name
 function formatFullName(firstName, lastName) {
     if (!firstName || !lastName) {
         return "Invalid name input.";
@@ -34,6 +35,7 @@ alert(formatFullName(firstName, lastName));
 // Task 2
 // ==========================
 
+// Function to calculate total cost including tax
 function calculateTotalCost(price, quantity, taxRate) {
     if (isNaN(price) || isNaN(quantity) || isNaN(taxRate)) {
         return "Invalid input.";
@@ -58,3 +60,37 @@ while (isNaN(taxRate)) {
 }
 
 alert("Total Cost: $" + calculateTotalCost(price, quantity, taxRate).toFixed(2));
+
+
+// ==========================
+// Task 3
+// ==========================
+
+// Function to check eligibility based on age and employment status
+function checkEligibility(age, isEmployed) {
+    if (age > 18 && isEmployed) {
+        return "Eligible";
+    } else if (age > 18 && !isEmployed) {
+        return "Conditionally Eligible";
+    } else {
+        return "Not Eligible";
+    }
+}
+
+let age = Number(prompt("Enter your age:"));
+while (isNaN(age)) {
+    age = Number(prompt("Invalid input. Enter your age:"));
+}
+
+let employed = prompt("Are you employed? (yes/no)");
+
+while (
+    employed === null ||
+    (employed.toLowerCase() !== "yes" && employed.toLowerCase() !== "no")
+) {
+    employed = prompt("Invalid input. Please enter yes or no:");
+}
+
+let isEmployed = employed.toLowerCase() === "yes";
+
+alert(checkEligibility(age, isEmployed));
