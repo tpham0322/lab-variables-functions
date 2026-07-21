@@ -13,7 +13,18 @@ function formatFullName(firstName, lastName) {
     return `${lastName}, ${firstName}`;
 }
 
+// Reprompts if the user enters an empty string or cancels the prompt
 let firstName = prompt("Enter your first name:");
+
+while (!firstName) {
+    firstName = prompt("Invalid input. Please enter your first name:");
+}
+
 let lastName = prompt("Enter your last name:");
 
+while (!lastName) {
+    lastName = prompt("Invalid input. Please enter your last name:");
+}
+
 alert(formatFullName(firstName, lastName));
+
